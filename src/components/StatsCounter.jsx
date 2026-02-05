@@ -70,25 +70,21 @@ function StatsCounter() {
     <section className="stats-section" ref={sectionRef}>
       <div className="stats-container">
         <div className="stat-item">
-          <div className="stat-icon">👥</div>
           <div className="stat-number">{counts.students}+</div>
           <div className="stat-label">Học viên đã tham gia</div>
         </div>
         
         <div className="stat-item">
-          <div className="stat-icon">📚</div>
           <div className="stat-number">{counts.sessions}+</div>
           <div className="stat-label">Buổi học online</div>
         </div>
         
         <div className="stat-item">
-          <div className="stat-icon">🎯</div>
           <div className="stat-number">{counts.problems}+</div>
           <div className="stat-label">Bài tập thực hành</div>
         </div>
         
         <div className="stat-item">
-          <div className="stat-icon">📅</div>
           <div className="stat-number">{counts.months}</div>
           <div className="stat-label">Tháng học tập</div>
         </div>
