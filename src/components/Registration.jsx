@@ -29,6 +29,19 @@ function Registration() {
       <div className="registration">
         <h2 className="section-title">Hình thức và chi phí tham gia</h2>
         
+        <div className="price-tag">$450</div>
+        <p className="price-description" style={{ marginBottom: '20px' }}>
+          cho toàn bộ chương trình
+        </p>
+        
+        <div className="info-section">
+          <ul className="info-list">
+            <li><strong>3 tháng</strong> (24+ buổi meeting online qua Zoom + Facebook)</li>
+            <li><strong>12+ buổi</strong> Tí sẽ trực tiếp cùng thảo luận về lý thuyết, bài tập, mock interview và chia sẻ kinh nghiệm.</li>
+            <li><strong>12+ buổi</strong> tối khác với TA để giải thêm bài tập và ôn lại kiến thức.</li>
+          </ul>
+        </div>
+
         <div className="info-section">
           <ul className="info-list">
             <li>Đọc kỹ các câu hỏi thường gặp và điền form đăng ký nếu bạn thực sự muốn tham gia và chiến hết mình cùng team.</li>
@@ -37,13 +50,6 @@ function Registration() {
           </ul>
         </div>
 
-        <div className="price-tag">$450</div>
-        <p className="price-description">
-          cho toàn bộ chương trình<br /><br />
-          <strong>3 tháng</strong> (24+ buổi meeting online qua Zoom + Facebook)<br /><br />
-          <strong>12+ buổi</strong> Tí sẽ trực tiếp cùng thảo luận về lý thuyết, bài tập, mock interview và chia sẻ kinh nghiệm.<br /><br />
-          <strong>12+ buổi</strong> tối khác với TA để giải thêm bài tập và ôn lại kiến thức.
-        </p>
 
         <form className="registration-form" onSubmit={handleSubmit}>
           <div className="form-group">

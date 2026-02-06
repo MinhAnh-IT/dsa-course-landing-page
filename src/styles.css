@@ -1190,19 +1190,6 @@ body {
   animation: fadeInUp 0.8s ease-out both;
 }
 
-.section-title::after {
-  content: '';
-  position: absolute;
-  bottom: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80px;
-  height: 4px;
-  background: linear-gradient(90deg, #667eea, #764ba2);
-  border-radius: 2px;
-  animation: scaleIn 1s ease-out 0.3s both;
-}
-
 .section-subtitle {
   text-align: center;
   color: rgba(255, 255, 255, 0.7);
