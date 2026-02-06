@@ -42,7 +42,7 @@ function Hero() {
         <div className="hero-cta-wrapper">
           <div className="hero-highlight">🎯 BEST PROGRAM FOR BEGINNERS</div>
           <button className="hero-cta" onClick={scrollToRegistration}>
-            ĐIỀN FORM ĐĂNG KÍ - $450
+            ĐIỀN FORM ĐĂNG KÍ NGAY
           </button>
         </div>
       </div>

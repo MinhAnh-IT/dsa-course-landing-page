@@ -1,6 +1,9 @@
 import React from 'react'
+import { useMobileHover } from '../hooks/useMobileHover'
 
 function WhatYouGet() {
+  const { hoveredId, handleItemInteraction, containerRef } = useMobileHover()
+  
   return (
     <section className="section what-you-get" id="what-you-get">
       <div className="what-you-get-container">
@@ -15,8 +18,11 @@ function WhatYouGet() {
         
         <h2 className="what-you-get-title">Bạn sẽ nhận được gì sau chương trình?</h2>
         
-        <div className="what-you-get-content">
-          <div className="outcome-item">
+        <div className="what-you-get-content" ref={containerRef}>
+          <div 
+            className={`outcome-item ${hoveredId === 1 ? 'hovered' : ''}`}
+            onClick={() => handleItemInteraction(1)}
+          >
             <div className="outcome-number">01</div>
             <div className="outcome-text">
               <h3>Tư duy giải quyết vấn đề có cấu trúc</h3>
@@ -24,7 +30,10 @@ function WhatYouGet() {
             </div>
           </div>
 
-          <div className="outcome-item">
+          <div 
+            className={`outcome-item ${hoveredId === 2 ? 'hovered' : ''}`}
+            onClick={() => handleItemInteraction(2)}
+          >
             <div className="outcome-number">02</div>
             <div className="outcome-text">
               <h3>Tự tin trong phỏng vấn kỹ thuật</h3>
@@ -32,7 +41,10 @@ function WhatYouGet() {
             </div>
           </div>
 
-          <div className="outcome-item">
+          <div 
+            className={`outcome-item ${hoveredId === 3 ? 'hovered' : ''}`}
+            onClick={() => handleItemInteraction(3)}
+          >
             <div className="outcome-number">03</div>
             <div className="outcome-text">
               <h3>Kỹ năng phân tích và tối ưu hóa</h3>
@@ -40,7 +52,10 @@ function WhatYouGet() {
             </div>
           </div>
 
-          <div className="outcome-item">
+          <div 
+            className={`outcome-item ${hoveredId === 4 ? 'hovered' : ''}`}
+            onClick={() => handleItemInteraction(4)}
+          >
             <div className="outcome-number">04</div>
             <div className="outcome-text">
               <h3>Khả năng giải thích rõ ràng</h3>

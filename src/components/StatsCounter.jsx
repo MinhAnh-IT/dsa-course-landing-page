@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react'
+import { useMobileHover } from '../hooks/useMobileHover'
 
 function StatsCounter() {
+  const { hoveredId: hoveredStatId, handleItemInteraction, containerRef: statsContainerRef } = useMobileHover()
   const [isVisible, setIsVisible] = useState(false)
   const [counts, setCounts] = useState({
     students: 0,
@@ -68,23 +70,35 @@ function StatsCounter() {
 
   return (
     <section className="stats-section" ref={sectionRef}>
-      <div className="stats-container">
-        <div className="stat-item">
+      <div className="stats-container" ref={statsContainerRef}>
+        <div 
+          className={`stat-item ${hoveredStatId === 1 ? 'hovered' : ''}`}
+          onClick={() => handleItemInteraction(1)}
+        >
           <div className="stat-number">{counts.students}+</div>
           <div className="stat-label">Học viên đã tham gia</div>
         </div>
         
-        <div className="stat-item">
+        <div 
+          className={`stat-item ${hoveredStatId === 2 ? 'hovered' : ''}`}
+          onClick={() => handleItemInteraction(2)}
+        >
           <div className="stat-number">{counts.sessions}+</div>
           <div className="stat-label">Buổi học online</div>
         </div>
         
-        <div className="stat-item">
+        <div 
+          className={`stat-item ${hoveredStatId === 3 ? 'hovered' : ''}`}
+          onClick={() => handleItemInteraction(3)}
+        >
           <div className="stat-number">{counts.problems}+</div>
           <div className="stat-label">Bài tập thực hành</div>
         </div>
         
-        <div className="stat-item">
+        <div 
+          className={`stat-item ${hoveredStatId === 4 ? 'hovered' : ''}`}
+          onClick={() => handleItemInteraction(4)}
+        >
           <div className="stat-number">{counts.months}</div>
           <div className="stat-label">Tháng học tập</div>
         </div>

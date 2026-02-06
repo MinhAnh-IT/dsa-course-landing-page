@@ -1,6 +1,9 @@
 import React from 'react'
+import { useMobileHover } from '../hooks/useMobileHover'
 
 function Curriculum() {
+  const { hoveredId: hoveredModuleId, handleItemInteraction, containerRef } = useMobileHover()
+  
   const modules = [
     { 
       number: 1, 
@@ -88,9 +91,13 @@ function Curriculum() {
         Tí cố gắng đi từ cơ bản đến nâng cao hơn để các bạn mới bắt đầu có thể dễ dàng.
       </p>
       
-      <div className="curriculum-grid">
+      <div className="curriculum-grid" ref={containerRef}>
         {modules.map((module) => (
-          <div key={module.number} className="module-card">
+          <div 
+            key={module.number} 
+            className={`module-card ${hoveredModuleId === module.number ? 'hovered' : ''}`}
+            onClick={() => handleItemInteraction(module.number)}
+          >
             <div className="module-number">MODULE {module.number}</div>
             <h3 className="module-title">{module.title}</h3>
             

@@ -1,6 +1,9 @@
 import React from 'react'
+import { useMobileHover } from '../hooks/useMobileHover'
 
 function WhyDifferent() {
+  const { hoveredId: hoveredMethodId, handleItemInteraction, containerRef } = useMobileHover()
+  
   return (
     <section className="why-different section" id="why-different">
       <h2 className="section-title">Điều gì làm chương trình khác biệt?</h2>
@@ -20,18 +23,27 @@ function WhyDifferent() {
             <span className="icon">📚</span>
             Phương pháp học tập
           </h3>
-          <div className="method-cards">
-            <div className="method-card">
+          <div className="method-cards" ref={containerRef}>
+            <div 
+              className={`method-card ${hoveredMethodId === 1 ? 'hovered' : ''}`}
+              onClick={() => handleItemInteraction(1)}
+            >
               <div className="method-icon">👥</div>
               <h4>Học tập chủ động</h4>
               <p>Tham gia tích cực vào các buổi thảo luận và giải quyết vấn đề thực tế</p>
             </div>
-            <div className="method-card">
+            <div 
+              className={`method-card ${hoveredMethodId === 2 ? 'hovered' : ''}`}
+              onClick={() => handleItemInteraction(2)}
+            >
               <div className="method-icon">🎯</div>
               <h4>Thực hành phỏng vấn</h4>
               <p>Mock interview và feedback trực tiếp từ Tí và team TAs</p>
             </div>
-            <div className="method-card">
+            <div 
+              className={`method-card ${hoveredMethodId === 3 ? 'hovered' : ''}`}
+              onClick={() => handleItemInteraction(3)}
+            >
               <div className="method-icon">💡</div>
               <h4>Tư duy giải quyết vấn đề</h4>
               <p>Học cách phân tích và chọn approach phù hợp, không chỉ học thuộc lòng</p>
