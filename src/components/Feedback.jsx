@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 const testimonials = [
   {
@@ -63,6 +63,24 @@ const companyLogos = [
 ]
 
 function Feedback() {
+  const [showAll, setShowAll] = useState(false)
+  const [isMobile, setIsMobile] = useState(false)
+
+  React.useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768)
+    }
+    
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
+
+  const displayedTestimonials = (isMobile && !showAll) 
+    ? testimonials.slice(0, 2) 
+    : testimonials
+
   return (
     <section className="feedback section" id="feedback">
       <h2 className="section-title">Được tin tưởng bởi các kỹ sư nhận được offer từ các công ty hàng đầu</h2>
@@ -78,7 +96,7 @@ function Feedback() {
       
       {/* Testimonials Grid */}
       <div className="testimonials-grid">
-        {testimonials.map((testimonial, index) => (
+        {displayedTestimonials.map((testimonial, index) => (
           <div key={index} className="testimonial-card">
             <img 
               src={testimonial.image} 
@@ -88,6 +106,18 @@ function Feedback() {
           </div>
         ))}
       </div>
+
+      {/* Show More Button - Only on Mobile */}
+      {isMobile && (
+        <div className="show-more-container">
+          <button 
+            className="show-more-btn"
+            onClick={() => setShowAll(!showAll)}
+          >
+            {showAll ? 'Thu gọn ▲' : 'Xem thêm ▼'}
+          </button>
+        </div>
+      )}
     </section>
   )
 }
