@@ -1,7 +1,7 @@
 /* ==================== Vertical Roadmap ==================== */
 
 .roadmap-section {
-  padding: 80px 20px;
+  padding: 80px 20px 40px 20px;
   background: #000000;
   min-height: 100vh;
 }
@@ -375,7 +375,7 @@
     overflow-x: auto;
     overflow-y: visible;
     -webkit-overflow-scrolling: touch;
-    margin: 0;
+    margin: 0 -20px;
     border-radius: 16px;
   }
 
@@ -383,38 +383,27 @@
     gap: 30px;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     margin: 0;
-    min-width: min-content;
-    position: relative; /* For pseudo-element positioning */
-    padding: 0 120px 0 0;
+    min-width: max-content;
+    position: relative;
+    padding: 0 40px;
   }
 
-  /* Create real physical left scroll buffer */
-  .roadmap-grid::before {
-    content: '';
-    display: block;
-    width: 80px;
-    height: 1px;
-    flex-shrink: 0;
-    position: absolute;
-    left: 0;
-    top: 0;
-  }
-
-  /* Offset SVG to align with shifted content */
+  /* Offset SVG to align with content */
   .connection-svg {
-    left: 80px;
-    width: calc(100% - 80px);
+    left: 0;
+    width: 100%;
   }
 
   .roadmap-level {
-    display: inline-flex;
+    display: flex;
     flex-direction: row;
     gap: 12px;
     flex-wrap: nowrap;
     flex-shrink: 0;
-    margin-left: 120px;
+    justify-content: center;
+    min-width: max-content;
   }
 
   .roadmap-topic {
@@ -478,7 +467,7 @@
     padding: 25px 0;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
-    margin: 0;
+    margin: 0 -10px;
     border-radius: 12px;
   }
 
@@ -486,37 +475,26 @@
     gap: 25px;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    padding: 0 70px 0 0;
+    align-items: center;
+    padding: 0 30px;
     margin: 0;
-    min-width: min-content;
-    position: relative; /* For pseudo-element positioning */
+    min-width: max-content;
+    position: relative;
   }
 
-  /* Create real physical left scroll buffer */
-  .roadmap-grid::before {
-    content: '';
-    display: block;
-    width: 70px;
-    height: 1px;
-    flex-shrink: 0;
-    position: absolute;
-    left: 0;
-    top: 0;
-  }
-
-  /* Offset SVG to align with shifted content */
+  /* Offset SVG to align with content */
   .connection-svg {
-    left: 70px;
-    width: calc(100% - 70px);
+    left: 0;
+    width: 100%;
   }
 
   .roadmap-level {
-    display: inline-flex;
+    display: flex;
     gap: 10px;
     flex-wrap: nowrap;
     flex-shrink: 0;
-    margin-left: 70px;
+    justify-content: center;
+    min-width: max-content;
   }
 
   .roadmap-topic {

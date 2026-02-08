@@ -129,7 +129,27 @@ const Roadmap = () => {
   const [showCompleted, setShowCompleted] = useState(true);
   const [selectedTopic, setSelectedTopic] = useState(null);
   const nodeRefs = useRef({});
+  const containerRef = useRef(null);
   const totalLevels = getTotalLevels();
+
+  // Auto-scroll to center on mount (mobile only)
+  useEffect(() => {
+    const scrollToCenter = () => {
+      if (containerRef.current && window.innerWidth <= 768) {
+        const container = containerRef.current;
+        const scrollWidth = container.scrollWidth;
+        const clientWidth = container.clientWidth;
+        const centerPosition = (scrollWidth - clientWidth) / 2;
+        
+        container.scrollLeft = centerPosition;
+      }
+    };
+
+    // Delay to ensure content is rendered
+    const timer = setTimeout(scrollToCenter, 200);
+    
+    return () => clearTimeout(timer);
+  }, []);
 
   const toggleTopicComplete = (topicId) => {
     setCompletedTopics(prev => {
@@ -170,7 +190,7 @@ const Roadmap = () => {
         <p className="roadmap-subtitle">Thành thạo Cấu trúc Dữ liệu & Giải thuật từng bước</p>
       </div>
 
-      <div className="roadmap-container">
+      <div className="roadmap-container" ref={containerRef}>
         <div className="roadmap-grid">
           <ConnectionLines 
             topics={roadmapTopics} 
