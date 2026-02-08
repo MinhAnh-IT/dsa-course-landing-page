@@ -115,12 +115,18 @@
 
 @media (max-width: 480px) {
   .testimonial-card {
-    padding: 24px 14px;
+    padding: 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    border: none !important;
   }
   
   .testimonial-image {
-    width: 70px;
-    height: 70px;
+    width: 100vw !important;
+    max-width: 100vw !important;
+    height: auto;
+    object-fit: contain;
+    border-radius: 0 !important;
   }
   
   .testimonial-quote {
