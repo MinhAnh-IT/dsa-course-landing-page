@@ -387,6 +387,7 @@
     margin: 0;
     min-width: min-content;
     position: relative; /* For pseudo-element positioning */
+    padding: 20px 120px 20px 0;
   }
 
   /* Create real physical left scroll buffer */
