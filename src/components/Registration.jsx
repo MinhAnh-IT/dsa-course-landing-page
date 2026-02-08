@@ -4,8 +4,9 @@ function Registration() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    facebook: '',
     phone: '',
-    currentJob: '',
+    major: '',
     englishLevel: '',
     codingLevel: '',
     introduction: ''
@@ -18,10 +19,50 @@ function Registration() {
     })
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    alert('Cảm ơn bạn đã đăng ký! Team Tí sẽ xem xét hồ sơ và liên hệ sớm nhất.')
-    console.log('Form submitted:', formData)
+    
+    // Google Form configuration
+    const GOOGLE_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSfyx9hXGvLfolZTrsXsOG2UP3fv7cklE2O-Ngqn8WbP5Ax_ng/formResponse'
+    
+    // Create FormData
+    const formDataToSubmit = new FormData()
+    formDataToSubmit.append('entry.458483274', formData.name)
+    formDataToSubmit.append('entry.1569414496', formData.email)
+    formDataToSubmit.append('entry.1633951729', formData.facebook)
+    formDataToSubmit.append('entry.1017970780', formData.phone)
+    formDataToSubmit.append('entry.1084436143', formData.major)
+    formDataToSubmit.append('entry.775698569', formData.englishLevel)
+    formDataToSubmit.append('entry.844662736', formData.codingLevel)
+    formDataToSubmit.append('entry.568537434', formData.introduction)
+    
+    try {
+      // Submit to Google Form
+      await fetch(GOOGLE_FORM_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        body: formDataToSubmit
+      })
+      
+      // Show success message
+      alert('Cảm ơn bạn đã đăng ký! Team Tí sẽ xem xét hồ sơ và liên hệ sớm nhất.')
+      
+      // Reset form
+      setFormData({
+        name: '',
+        email: '',
+        facebook: '',
+        phone: '',
+        major: '',
+        englishLevel: '',
+        codingLevel: '',
+        introduction: ''
+      })
+      
+    } catch (error) {
+      console.error('Error submitting form:', error)
+      alert('Có lỗi xảy ra. Vui lòng thử lại sau.')
+    }
   }
 
   return (
@@ -30,9 +71,6 @@ function Registration() {
         <h2 className="section-title">Hình thức và chi phí tham gia</h2>
         
         <div className="price-tag">$450</div>
-        <p className="price-description" style={{ marginBottom: '20px' }}>
-          cho toàn bộ chương trình
-        </p>
         
         <div className="info-section">
           <ul className="info-list">
@@ -61,7 +99,7 @@ function Registration() {
               value={formData.name}
               onChange={handleChange}
               required
-              placeholder="Nhập họ và tên của bạn"
+              placeholder="Câu trả lời của bạn"
             />
           </div>
 
@@ -74,7 +112,20 @@ function Registration() {
               value={formData.email}
               onChange={handleChange}
               required
-              placeholder="your.email@example.com"
+              placeholder="Câu trả lời của bạn"
+            />
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="facebook">Facebook (Link chính chủ - Team sẽ liên lạc nếu cần thiết) *</label>
+            <input
+              type="text"
+              id="facebook"
+              name="facebook"
+              value={formData.facebook}
+              onChange={handleChange}
+              required
+              placeholder="Câu trả lời của bạn"
             />
           </div>
 
@@ -87,67 +138,83 @@ function Registration() {
               value={formData.phone}
               onChange={handleChange}
               required
-              placeholder="+84 xxx xxx xxx"
+              placeholder="Câu trả lời của bạn"
             />
           </div>
 
           <div className="form-group">
-            <label htmlFor="currentJob">Ngành học hiện tại / Công việc hiện tại *</label>
-            <input
-              type="text"
-              id="currentJob"
-              name="currentJob"
-              value={formData.currentJob}
+            <label htmlFor="major">Ngành học/ Công việc hiện tại: *</label>
+            <select
+              id="major"
+              name="major"
+              value={formData.major}
               onChange={handleChange}
               required
-              placeholder="Ví dụ: Sinh viên CNTT, Software Engineer, ..."
-            />
+            >
+              <option value="">Chọn...</option>
+              <option value="Công nghệ Thông tin">Công nghệ Thông tin</option>
+              <option value="Kỹ thuật Phần mềm">Kỹ thuật Phần mềm</option>
+              <option value="Khoa học Máy tính">Khoa học Máy tính</option>
+              <option value="Hệ thống Thông tin">Hệ thống Thông tin</option>
+              <option value="Trí tuệ Nhân tạo">Trí tuệ Nhân tạo</option>
+              <option value="Data Science">Data Science</option>
+              <option value="Data Engineering">Data Engineering</option>
+              <option value="Khác">Khác</option>
+            </select>
           </div>
 
           <div className="form-group">
             <label htmlFor="englishLevel">Trình độ Tiếng Anh *</label>
-            <input
-              type="text"
+            <select
               id="englishLevel"
               name="englishLevel"
               value={formData.englishLevel}
               onChange={handleChange}
               required
-              placeholder="Ví dụ: IELTS 6.5, TOEIC 750, ..."
-            />
+            >
+              <option value="">Chọn...</option>
+              <option value="Cơ bản  (IELTS: band 1-3 hoặc TOEIC: 120-550)">Cơ bản  (IELTS: band 1-3 hoặc TOEIC: 120-550)</option>
+              <option value="Trung cấp (IELTS: band 3.5-5.5 hoặc TOEIC: 550-785)">Trung cấp (IELTS: band 3.5-5.5 hoặc TOEIC: 550-785)</option>
+              <option value="Nâng cao (IELTS: band 6-9 hoặc TOEIC: 785-990)">Nâng cao (IELTS: band 6-9 hoặc TOEIC: 785-990)</option>
+            </select>
           </div>
 
           <div className="form-group">
             <label htmlFor="codingLevel">Trình độ code (chỉ tính môn DSA hoặc giải Leetcode) *</label>
-            <input
-              type="text"
+            <select
               id="codingLevel"
               name="codingLevel"
               value={formData.codingLevel}
               onChange={handleChange}
               required
-              placeholder="Ví dụ: Beginner, đã làm 50 bài Leetcode, ..."
-            />
+            >
+              <option value="">Chọn...</option>
+              <option value="Cơ bản (chưa học môn DSA bao giờ hoặc học rồi nhưng quên hết rồi)">Cơ bản (chưa học môn DSA bao giờ hoặc học rồi nhưng quên hết rồi)</option>
+              <option value="Trung bình (có thể giải các bài tập thuật toán/Leetcode mức độ dễ/easy)">Trung bình (có thể giải các bài tập thuật toán/Leetcode mức độ dễ/easy)</option>
+              <option value="Khá (có thể giải các bài tập thuật toán/Leetcode mức độ trung bình/medium)">Khá (có thể giải các bài tập thuật toán/Leetcode mức độ trung bình/medium)</option>
+              <option value="Giỏi (có thể giải các bài tập thuật toán/Leetcode mức độ khó/hard)">Giỏi (có thể giải các bài tập thuật toán/Leetcode mức độ khó/hard)</option>
+              <option value="Khác">Khác</option>
+            </select>
           </div>
 
           <div className="form-group">
-            <label htmlFor="introduction">Giới thiệu về bạn *</label>
+            <label htmlFor="introduction">Giới thiệu nhiều hơn về background, mục tiêu của bạn để team mình có cơ hội hiểu bạn hơn nhé! *</label>
             <textarea
               id="introduction"
               name="introduction"
               value={formData.introduction}
               onChange={handleChange}
               required
-              placeholder="Hãy cho Tí biết thêm về bạn, mục tiêu của bạn, và tại sao bạn muốn tham gia chương trình này..."
+              placeholder="Câu trả lời của bạn"
             />
           </div>
 
           <button type="submit" className="submit-btn">
-            Submit
+            Gửi
           </button>
         </form>
 
-        <p style={{ textAlign: 'center', marginTop: '30px', color: 'rgba(255, 255, 255, 0.6)' }}>
+        <p style={{ textAlign: 'center', marginTop: '30px', color: 'rgba(255, 255, 255, 0.6)', fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif', lineHeight: '1.6' }}>
           Team Tí sẽ xem xét kỹ hồ sơ của bạn (có thể gọi điện trực tiếp nếu cần). Nếu số lượng vượt quá kỳ vọng hoặc hồ sơ chưa phù hợp, mong bạn thông cảm và đợi đợt thông báo tiếp theo nhé!
         </p>
       </div>

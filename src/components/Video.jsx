@@ -3,9 +3,9 @@ import React from 'react'
 function Video() {
   return (
     <section className="section video-section" id="video">
-      <h2 className="section-title">Giới thiệu chương trình</h2>
+      <h2 className="section-title">Hi, I'm Ti</h2>
       <p className="section-subtitle">
-        Xem để hiểu hơn về mentor và cách học của khoá học DSA
+        Xem để hiểu hơn về mentor và chương trình học
       </p>
       
       <div className="video-container">

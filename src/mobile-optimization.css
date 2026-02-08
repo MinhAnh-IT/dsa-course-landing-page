@@ -1,0 +1,318 @@
+/* ==================== Mobile-First Optimization ==================== */
+/* File này chứa các tối ưu quan trọng cho mobile experience */
+
+/* Touch-friendly improvements */
+@media (max-width: 768px) {
+  /* Ensure all interactive elements are touch-friendly (min 48x48px) */
+  button,
+  a,
+  input,
+  select,
+  textarea,
+  .control-btn,
+  .hero-cta,
+  .submit-btn,
+  .sticky-btn {
+    min-height: 48px;
+    min-width: 48px;
+  }
+
+  /* Better spacing for touch targets */
+  button,
+  a.hero-cta,
+  .submit-btn {
+    margin: 8px 0;
+  }
+
+  /* Improve text selection on mobile */
+  p,
+  li,
+  span {
+    -webkit-user-select: text;
+    user-select: text;
+  }
+
+  /* Prevent zoom on input focus (iOS) */
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="number"],
+  textarea {
+    font-size: 16px !important; /* iOS won't zoom if >= 16px */
+  }
+  
+  /* Larger font size for select dropdown on mobile */
+  select {
+    font-size: 18px !important;
+  }
+  
+  /* Much larger font size for dropdown options on mobile */
+  select option {
+    font-size: 20px !important;
+    padding: 16px 12px !important;
+    line-height: 1.6;
+    min-height: 56px;
+  }
+
+  /* Better form field appearance on mobile */
+  input,
+  select,
+  textarea {
+    appearance: none;
+    -webkit-appearance: none;
+    border-radius: 12px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+  }
+
+  /* Focus states optimized for mobile */
+  input:focus,
+  select:focus,
+  textarea:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+  }
+
+  /* Better active states for touch */
+  button:active,
+  a:active,
+  .hero-cta:active,
+  .submit-btn:active {
+    transform: scale(0.98);
+    transition: transform 0.1s ease;
+  }
+}
+
+/* Performance optimizations for mobile */
+@media (max-width: 768px) {
+  /* Reduce animation complexity on mobile */
+  * {
+    animation-duration: 0.3s !important;
+  }
+
+  /* Optimize background gradients */
+  .hero::before,
+  .hero::after {
+    display: none; /* Remove heavy background animations on mobile */
+  }
+
+  /* Simplified hero background for mobile */
+  .hero {
+    background: linear-gradient(180deg, #0a0a0a 0%, #1a1a2e 100%);
+  }
+
+  /* Reduce shadow complexity */
+  .stat-item:hover,
+  .outcome-item:hover {
+    box-shadow: 0 8px 24px rgba(102, 126, 234, 0.15);
+  }
+
+  /* Optimize images for mobile */
+  img {
+    max-width: 100%;
+    height: auto;
+    image-rendering: -webkit-optimize-contrast;
+  }
+}
+
+/* Landscape orientation on mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+  .hero {
+    min-height: auto;
+    padding: 40px 16px;
+  }
+
+  .hero h1 {
+    font-size: clamp(1.8rem, 6vw, 2.5rem);
+  }
+
+  .hero-info-bar {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .scroll-indicator {
+    display: none; /* Hide in landscape */
+  }
+}
+
+/* Very small phones optimization */
+@media (max-width: 360px) {
+  /* Ultra compact layout */
+  .section {
+    padding: 32px 12px;
+  }
+
+  .hero {
+    padding: 24px 12px 40px;
+  }
+
+  .hero h1 {
+    font-size: clamp(1.5rem, 8vw, 1.9rem);
+  }
+
+  .hero-info-item {
+    padding: 8px 10px;
+    min-width: calc(50% - 6px);
+  }
+
+  .info-label {
+    font-size: 0.7rem;
+  }
+
+  .info-value {
+    font-size: 0.95rem;
+  }
+
+  /* Compact buttons */
+  .hero-cta,
+  .submit-btn {
+    padding: 12px 24px;
+    font-size: 0.9rem;
+  }
+
+  /* Smaller stat items */
+  .stat-number {
+    font-size: 1.75rem;
+  }
+
+  .stat-label {
+    font-size: 0.75rem;
+  }
+
+  /* Compact form */
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    padding: 12px 14px;
+  }
+
+  .price-tag {
+    font-size: 2rem;
+    padding: 14px 28px;
+  }
+}
+
+/* Safe area insets for notched devices (iPhone X+) */
+@supports (padding: env(safe-area-inset-top)) {
+  @media (max-width: 768px) {
+    .hero {
+      padding-top: max(30px, env(safe-area-inset-top));
+      padding-left: max(16px, env(safe-area-inset-left));
+      padding-right: max(16px, env(safe-area-inset-right));
+    }
+
+    .footer {
+      padding-bottom: max(40px, env(safe-area-inset-bottom));
+    }
+
+    .sticky-cta-bar {
+      padding-bottom: max(12px, env(safe-area-inset-bottom));
+    }
+  }
+}
+
+/* Dark mode optimization for mobile (if OS prefers dark) */
+@media (max-width: 768px) and (prefers-color-scheme: dark) {
+  body {
+    background-color: #000000;
+  }
+
+  /* Enhance contrast for better readability */
+  .hero-description,
+  .section-subtitle {
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  input,
+  select,
+  textarea {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.15);
+  }
+
+  input::placeholder,
+  textarea::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+  }
+}
+
+/* Loading states for mobile */
+@media (max-width: 768px) {
+  /* Skeleton loading for better perceived performance */
+  .loading {
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.05) 25%,
+      rgba(255, 255, 255, 0.1) 50%,
+      rgba(255, 255, 255, 0.05) 75%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: -200% 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
+  }
+}
+
+/* Accessibility improvements for mobile */
+@media (max-width: 768px) {
+  /* Larger focus outlines */
+  *:focus-visible {
+    outline: 3px solid #667eea;
+    outline-offset: 3px;
+  }
+
+  /* Better contrast for links */
+  a {
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+  }
+
+  /* Readable text sizes */
+  p,
+  li {
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  /* Better spacing for readability */
+  p + p,
+  li + li {
+    margin-top: 0.75em;
+  }
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  button,
+  .hero-cta,
+  .submit-btn {
+    border: 2px solid currentColor;
+  }
+
+  input,
+  select,
+  textarea {
+    border: 2px solid rgba(255, 255, 255, 0.5);
+  }
+}

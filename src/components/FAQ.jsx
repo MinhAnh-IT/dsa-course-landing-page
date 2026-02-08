@@ -9,10 +9,6 @@ function FAQ() {
       answer: "Vì họ không tuyển người biết gõ code, mà tuyển người biết suy nghĩ và xây dựng giải pháp. Coding là cách nhanh nhất để đánh giá tư duy thật của ứng viên. Họ kiểm tra cách phân tích vấn đề, ra quyết định và giải thích, không chỉ code đúng. Coding phản ánh khả năng giải quyết vấn đề thực tế và hệ thống lớn. Phỏng vấn là để xem bạn nghĩ và giao tiếp kỹ thuật như thế nào. AI viết code được, nhưng không thay bạn suy nghĩ và chịu trách nhiệm cho giải pháp. 👉 Coding interview = kiểm tra tư duy, không phải kiểm tra gõ code"
     },
     {
-      question: "Điều gì làm chương trình này khác biệt?",
-      answer: "Nhiều môn học và chương trình ở đại học tập trung quá nhiều vào lý thuyết, nhưng lại chưa chuẩn bị đủ cho sinh viên và cả người đi làm khi bước vào phỏng vấn. Không ít người đã đi làm vài năm, thậm chí code hằng ngày, nhưng vẫn lúng túng khi phải giải thích cách nghĩ, chọn giải pháp hay trình bày vấn đề trong một buổi phỏng vấn kỹ thuật. Chương trình này được thiết kế dành cho: Sinh viên muốn chuẩn bị sớm cho phỏng vấn, người đi làm muốn chuyển việc, nhảy vào các công ty lớn, và những ai cảm thấy: 'Mình biết code, nhưng không biết nói sao cho interview hiểu'"
-    },
-    {
       question: "Ai không nên tham gia?",
       answer: "Các bạn đã nắm vững kiến thức về cấu trúc dữ liệu và thuật toán, hoặc đang tìm kiếm chương trình nâng cao hơn."
     },
