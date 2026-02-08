@@ -18,6 +18,6 @@
 @import './footer.css';
 
 /* 5. Mobile and responsive styles - Must be loaded last to override desktop styles */
-@import './mobile.css';
+@import './mobile/index.css';
 
 /* Note: Roadmap.css is loaded separately via the Roadmap component */

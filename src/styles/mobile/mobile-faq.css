@@ -1,0 +1,51 @@
+/* ==================== MOBILE FAQ SECTION ==================== */
+/* Responsive styles for FAQ accordion */
+
+@media (max-width: 768px) {
+  .faq-question {
+    padding: 12px 14px;
+    font-size: 0.875rem;
+    line-height: 1.4;
+  }
+  
+  .faq-icon {
+    font-size: 1.2rem;
+  }
+  
+  .faq-answer {
+    padding: 0 14px;
+  }
+  
+  .faq-item.active .faq-answer {
+    padding: 0 14px 12px;
+  }
+  
+  .faq-answer p {
+    font-size: 0.825rem;
+    line-height: 1.6;
+  }
+}
+
+@media (max-width: 480px) {
+  .faq-question {
+    padding: 12px 14px;
+    font-size: 0.85rem;
+    min-height: 44px;
+  }
+  
+  .faq-icon {
+    font-size: 1.2rem;
+  }
+  
+  .faq-answer {
+    padding: 0 14px;
+  }
+  
+  .faq-item.active .faq-answer {
+    padding: 0 14px 12px;
+  }
+  
+  .faq-answer p {
+    font-size: 0.8rem;
+  }
+}

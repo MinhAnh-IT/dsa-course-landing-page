@@ -1,0 +1,14 @@
+/* ==================== MOBILE VIDEO SECTION ==================== */
+/* Responsive styles for video section */
+
+@media (max-width: 768px) {
+  .video-section {
+    padding: 60px 16px;
+    min-height: 100vh;
+  }
+  
+  .video-container {
+    border-radius: 12px;
+    max-width: 100%;
+  }
+}
