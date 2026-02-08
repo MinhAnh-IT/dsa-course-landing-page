@@ -1,0 +1,329 @@
+/* ==================== FOOTER ==================== */
+/* Footer layout and contact information */
+
+.footer {
+  background: #000000;
+  padding: 80px 20px 30px;
+  position: relative;
+  overflow: hidden;
+}
+
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.5), transparent);
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Footer Contact Wrapper */
+.footer-contact-wrapper {
+  max-width: 900px;
+  margin: 0 auto 60px;
+  text-align: center;
+}
+
+.footer-contact-column {
+  text-align: center;
+}
+
+.footer-column {
+  animation: fadeInUp 0.8s ease-out both;
+}
+
+.footer-column:nth-child(1) { animation-delay: 0.1s; }
+.footer-column:nth-child(2) { animation-delay: 0.2s; }
+.footer-column:nth-child(3) { animation-delay: 0.3s; }
+
+.footer-column-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #667eea;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* Brand Section */
+.footer-brand {
+  margin-bottom: 20px;
+}
+
+.brand-logo {
+  display: inline-block;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  font-size: 2rem;
+  font-weight: 900;
+  padding: 15px 25px;
+  border-radius: 15px;
+  margin-bottom: 15px;
+  box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+}
+
+.brand-tagline {
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.brand-tagline strong {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.footer-description {
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.8;
+  font-size: 0.95rem;
+}
+
+/* Footer Links */
+.footer-links {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  margin-bottom: 15px;
+}
+
+.footer-links a {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-links a:hover {
+  color: #667eea;
+  transform: translateX(5px);
+}
+
+/* Footer Contact */
+.footer-contact {
+  margin-bottom: 30px;
+}
+
+.footer-contact h3 {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.contact-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #ffffff;
+  text-decoration: none;
+  padding: 15px 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.contact-item:hover {
+  background: rgba(102, 126, 234, 0.2);
+  transform: translateX(5px);
+  border-color: #667eea;
+}
+
+.contact-icon {
+  font-size: 1.3rem;
+}
+
+/* Contact Items */
+.footer-contact-items {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  max-width: 100%;
+}
+
+.contact-link {
+  display: inline-block;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+.contact-link:hover {
+  opacity: 0.8;
+}
+
+.contact-icon {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+.contact-link:hover .contact-icon {
+  transform: scale(1.1);
+}
+
+.contact-icon svg {
+  width: 32px;
+  height: 32px;
+}
+
+.contact-icon.youtube { 
+  background: linear-gradient(135deg, #FF0000, #CC0000);
+  color: white;
+}
+
+.contact-icon.tiktok { 
+  background: linear-gradient(135deg, #00f2ea, #ff0050);
+  color: white;
+}
+
+.contact-icon.facebook { 
+  background: linear-gradient(135deg, #1877F2, #0e5fc2);
+  color: white;
+}
+
+.contact-icon.email { 
+  background: linear-gradient(135deg, #EA4335, #c9372c);
+  color: white;
+}
+
+.contact-label {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  position: relative;
+  z-index: 1;
+}
+
+.contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.contact-platform {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+}
+
+.contact-handle {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 500;
+}
+
+/* Footer Bottom */
+.footer-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  margin-bottom: 30px;
+}
+
+.footer-bottom-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer-copyright {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.9rem;
+}
+
+.footer-badges {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.footer-badge {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 8px 15px;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.footer-badge:hover {
+  background: rgba(102, 126, 234, 0.2);
+  border-color: #667eea;
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.footer-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+
+.footer-socials {
+  margin-bottom: 30px;
+}
+
+.footer-socials h3 {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.social-link {
+  display: inline-block;
+  color: #ffffff;
+  text-decoration: none;
+  padding: 12px 25px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.social-link:hover {
+  background: #667eea;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+}

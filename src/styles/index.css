@@ -1,0 +1,23 @@
+/* ==================== MAIN CSS INDEX ==================== */
+/* This file imports all CSS modules in the correct cascade order */
+
+/* 1. Base styles - Must be loaded first */
+@import './base.css';
+
+/* 2. Layout styles - Global structure and major sections */
+@import './layout.css';
+
+/* 3. Shared components - Buttons, cards, modals, etc. */
+@import './components.css';
+
+/* 4. Page-specific styles */
+@import './video.css';
+@import './feedback.css';
+@import './faq.css';
+@import './registration.css';
+@import './footer.css';
+
+/* 5. Mobile and responsive styles - Must be loaded last to override desktop styles */
+@import './mobile.css';
+
+/* Note: Roadmap.css is loaded separately via the Roadmap component */
