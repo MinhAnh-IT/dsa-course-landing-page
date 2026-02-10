@@ -1,25 +1,59 @@
-import React from 'react'
+import React, { Suspense, lazy } from 'react'
+
+// Import Video ngay vì nó là phần hero section
 import Video from './components/Video'
-import Curriculum from './components/Curriculum'
-import Roadmap from './components/Roadmap'
-import Registration from './components/Registration'
-import Feedback from './components/Feedback'
-import FAQ from './components/FAQ'
-import Footer from './components/Footer'
+
+// Lazy load các components không cần thiết ngay lập tức
+const Roadmap = lazy(() => import('./components/Roadmap'))
+const Registration = lazy(() => import('./components/Registration'))
+const Feedback = lazy(() => import('./components/Feedback'))
+const FAQ = lazy(() => import('./components/FAQ'))
+const Footer = lazy(() => import('./components/Footer'))
+
+// Loading fallback component
+const LoadingFallback = () => (
+  <div style={{ 
+    minHeight: '200px', 
+    display: 'flex', 
+    alignItems: 'center', 
+    justifyContent: 'center',
+    opacity: 0.6 
+  }}>
+    <div>Đang tải...</div>
+  </div>
+)
 
 function App() {
   return (
     <div className="app">
       <Video />
       <div className="section-divider wave-inverse"></div>
-      <Roadmap />
+      
+      <Suspense fallback={<LoadingFallback />}>
+        <Roadmap />
+      </Suspense>
+      
       <div className="section-divider gradient"></div>
-      <Registration />
+      
+      <Suspense fallback={<LoadingFallback />}>
+        <Registration />
+      </Suspense>
+      
       <div className="section-divider wave"></div>
-      <Feedback />
+      
+      <Suspense fallback={<LoadingFallback />}>
+        <Feedback />
+      </Suspense>
+      
       <div className="section-divider gradient"></div>
-      <FAQ />
-      <Footer />
+      
+      <Suspense fallback={<LoadingFallback />}>
+        <FAQ />
+      </Suspense>
+      
+      <Suspense fallback={<LoadingFallback />}>
+        <Footer />
+      </Suspense>
     </div>
   )
 }
