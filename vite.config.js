@@ -16,13 +16,11 @@ export default defineConfig({
     },
     // Giảm kích thước chunk warning threshold
     chunkSizeWarningLimit: 1000,
-    // Enable minification
-    minify: 'terser',
-    terserOptions: {
-      compress: {
-        drop_console: true, // Remove console.log in production
-        drop_debugger: true
-      }
+    // Enable minification with esbuild (faster than terser, no extra dependencies)
+    minify: 'esbuild',
+    // Remove console and debugger in production
+    esbuild: {
+      drop: ['console', 'debugger']
     }
   },
   // Performance optimizations
