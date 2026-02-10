@@ -83,7 +83,7 @@ function Feedback() {
 
   return (
     <section className="feedback section" id="feedback">
-      <h2 className="section-title">Được tin tưởng bởi các kỹ sư nhận được offer từ các công ty hàng đầu</h2>
+      <h2 className="section-title">Niềm vui từ các bạn trong nhóm</h2>
       
       {/* Company Logos */}
       <div className="company-logos">

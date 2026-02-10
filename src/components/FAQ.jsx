@@ -10,11 +10,11 @@ function FAQ() {
     },
     {
       question: "Ai không nên tham gia?",
-      answer: "Các bạn đã nắm vững kiến thức về cấu trúc dữ liệu và thuật toán, hoặc đang tìm kiếm chương trình nâng cao hơn."
+      answer: "Các bạn đã nắm vững kiến thức về cấu trúc dữ liệu và thuật toán và đang tìm kiếm chương trình nâng cao hơn, hoặc bạn chưa bao giờ học về lập trình."
     },
     {
       question: "Tôi cần chuẩn bị gì trước khi tham gia?",
-      answer: "Bạn nên có kiến thức cơ bản về lập trình (biết ít nhất 1 ngôn ngữ như Python, Java, C++). Có laptop và kết nối internet ổn định. Quan trọng nhất là có động lực và quyết tâm học tập trong 3 tháng."
+      answer: "Bạn nên có kiến thức cơ bản về lập trình (biết ít nhất 1 ngôn ngữ như Python, Java, C++,...). Có laptop và kết nối internet ổn định. Quan trọng nhất là có động lực và quyết tâm học tập trong 3 tháng."
     },
     {
       question: "Chương trình có phù hợp với người mới bắt đầu không?",

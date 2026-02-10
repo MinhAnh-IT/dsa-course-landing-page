@@ -187,7 +187,7 @@ const Roadmap = () => {
     <div className="roadmap-section">
       <div className="roadmap-header">
         <h2>Lộ Trình Học DSA</h2>
-        <p className="roadmap-subtitle">Thành thạo Cấu trúc Dữ liệu & Giải thuật từng bước</p>
+        <p className="roadmap-subtitle">Bấm vào từng chủ đề để xem chi tiết</p>
       </div>
 
       <div className="roadmap-container" ref={containerRef}>
