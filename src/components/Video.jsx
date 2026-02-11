@@ -24,7 +24,7 @@ function Video() {
               width: '100%',
               height: '100%',
               cursor: 'pointer',
-              backgroundImage: 'url(https://img.youtube.com/vi/ovNIpx_I8lE/maxresdefault.jpg)',
+              backgroundImage: 'url(https://img.youtube.com/vi/iDxI3bzLpYE/maxresdefault.jpg)',
               backgroundSize: 'cover',
               backgroundPosition: 'center'
             }}
@@ -58,7 +58,7 @@ function Video() {
           <iframe
             width="100%"
             height="100%"
-            src="https://www.youtube.com/embed/ovNIpx_I8lE?autoplay=1"
+            src="https://www.youtube.com/embed/iDxI3bzLpYE?autoplay=1"
             title="TICUNGBIM DSA Program"
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
