@@ -75,8 +75,17 @@ function Registration() {
         <div className="info-section">
           <ul className="info-list">
             <li><strong>3 tháng</strong> (24+ buổi meeting online qua Zoom + Facebook)</li>
-            <li><strong>12+ buổi</strong> Tí sẽ trực tiếp cùng thảo luận về lý thuyết, bài tập, mock interview và chia sẻ kinh nghiệm.</li>
-            <li><strong>12+ buổi</strong> tối khác với TA để giải thêm bài tập và ôn lại kiến thức.</li>
+            <li>
+              <strong>12+ buổi</strong> Tí trực tiếp giảng lý thuyết, chữa bài, mock interview và chia sẻ kinh nghiệm thực tế
+              <br />
+              Thời gian học: Sáng Thứ 7 (8:00 – 10:00, giờ Việt Nam)
+            </li>
+            <li>
+              <strong>12+ buổi</strong> cùng TA để luyện thêm bài tập và ôn lại kiến thức
+              <br />
+              Thời gian học: Sắp xếp linh hoạt vào thời gian của các bạn
+            </li>
+            <li>Tất cả các buổi học <strong>đều được record</strong></li>
           </ul>
         </div>
 
