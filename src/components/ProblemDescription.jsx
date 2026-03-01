@@ -117,7 +117,7 @@ const ProblemDescription = () => {
               <p className="section-title">Constraints:</p>
               <ul className="constraints-list">
                 {problem.constraints.map((constraint, index) => (
-                  <li key={index}>{constraint}</li>
+                  <li key={index} dangerouslySetInnerHTML={{ __html: constraint }} />
                 ))}
               </ul>
             </div>
@@ -127,7 +127,7 @@ const ProblemDescription = () => {
           {problem.followUp && (
             <div className="followup-section">
               <p className="section-title">Follow-up:</p>
-              <p className="followup-text">{problem.followUp}</p>
+              <p className="followup-text" dangerouslySetInnerHTML={{ __html: problem.followUp }} />
             </div>
           )}
 
@@ -138,7 +138,7 @@ const ProblemDescription = () => {
               {problem.hints.map((hint, index) => (
                 <details key={index} className="hint-details">
                   <summary>Hint {index + 1}</summary>
-                  <p>{hint}</p>
+                  <p dangerouslySetInnerHTML={{ __html: hint }} />
                 </details>
               ))}
             </div>
