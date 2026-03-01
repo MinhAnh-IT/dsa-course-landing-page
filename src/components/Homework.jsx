@@ -1,5 +1,7 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
+import { useNavigate, useLocation, useSearchParams } from 'react-router-dom';
 import { homeworkData, getCategories, getCategoryStats, getLevels, getCategoryLevelBreakdown } from '../data/homeworkData';
+import { problemDescriptions } from '../data/problemDescriptions';
 import '../styles/homework.css';
 
 /**
@@ -7,15 +9,41 @@ import '../styles/homework.css';
  * Features tab navigation to filter problems by category
  */
 const Homework = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const [searchParams, setSearchParams] = useSearchParams();
+  
   // Get all unique categories and levels from homework data (dynamic)
   const categories = useMemo(() => getCategories(), []);
   const availableLevels = useMemo(() => getLevels(), []);
   
-  // State to track active tab (default to first category)
-  const [activeCategory, setActiveCategory] = useState(categories[0]);
+  // Initialize state from URL params or defaults
+  const [activeCategory, setActiveCategory] = useState(() => {
+    const categoryParam = searchParams.get('category');
+    return categoryParam && categories.includes(categoryParam) ? categoryParam : categories[0];
+  });
   
-  // State to track active difficulty filter ('all' or dynamic levels)
-  const [activeFilter, setActiveFilter] = useState('all');
+  const [activeFilter, setActiveFilter] = useState(() => {
+    return searchParams.get('filter') || 'all';
+  });
+  
+  // Restore state from navigation if coming back from problem page
+  useEffect(() => {
+    if (location.state?.activeCategory) {
+      setActiveCategory(location.state.activeCategory);
+    }
+    if (location.state?.activeFilter) {
+      setActiveFilter(location.state.activeFilter);
+    }
+  }, [location.state]);
+  
+  // Update URL params when category or filter changes
+  useEffect(() => {
+    const params = new URLSearchParams();
+    params.set('category', activeCategory);
+    params.set('filter', activeFilter);
+    setSearchParams(params, { replace: true });
+  }, [activeCategory, activeFilter, setSearchParams]);
 
   // Filter problems by selected category and difficulty
   const filteredProblems = useMemo(() => {
@@ -65,10 +93,31 @@ const Homework = () => {
   };
 
   /**
-   * Open problem link in new tab
+   * Handle problem click - navigate to internal page for premium or open LeetCode for free
    */
-  const handleProblemClick = (link) => {
-    window.open(link, '_blank', 'noopener,noreferrer');
+  const handleProblemClick = (problem) => {
+    if (problem.isPremium) {
+      // Find the problem slug from problemDescriptions
+      const problemDetail = problemDescriptions.find(
+        p => p.id === problem.id
+      );
+      
+      if (problemDetail) {
+        // Navigate to internal problem description page with current state
+        navigate(`/problem/${problemDetail.slug}`, {
+          state: { 
+            fromCategory: activeCategory,
+            fromFilter: activeFilter 
+          }
+        });
+      } else {
+        // Fallback to LeetCode if problem description not found
+        window.open(problem.link, '_blank', 'noopener,noreferrer');
+      }
+    } else {
+      // Open LeetCode for non-premium problems
+      window.open(problem.link, '_blank', 'noopener,noreferrer');
+    }
   };
 
   return (
@@ -139,7 +188,7 @@ const Homework = () => {
             <div 
               key={`${problem.name}-${index}`}
               className={`problem-card ${problem.isPremium ? 'premium' : ''}`}
-              onClick={() => handleProblemClick(problem.link)}
+              onClick={() => handleProblemClick(problem)}
             >
               {/* Premium Star Icon - Top Right Corner */}
               {problem.isPremium && (

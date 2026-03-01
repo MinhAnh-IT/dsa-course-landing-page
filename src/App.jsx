@@ -4,6 +4,7 @@ import { Routes, Route } from 'react-router-dom'
 // Lazy load pages for better performance
 const HomePage = lazy(() => import('./components/HomePage'))
 const Homework = lazy(() => import('./components/Homework'))
+const ProblemDescription = lazy(() => import('./components/ProblemDescription'))
 
 // Loading fallback component
 const LoadingFallback = () => (
@@ -25,6 +26,7 @@ const LoadingFallback = () => (
  * Routes:
  * - / : Main landing page
  * - /homework : Practice problems page
+ * - /problem/:problemSlug : Problem description page for premium problems
  */
 function App() {
   return (
@@ -32,6 +34,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/homework" element={<Homework />} />
+        <Route path="/problem/:problemSlug" element={<ProblemDescription />} />
       </Routes>
     </Suspense>
   )

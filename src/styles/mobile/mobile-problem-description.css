@@ -1,0 +1,41 @@
+/**
+ * Mobile Problem Description Styles
+ * Responsive styles for problem description page on mobile devices
+ */
+
+@media (max-width: 768px) {
+  .problem-container .problem-header {
+    padding: 12px 16px;
+  }
+
+  .problem-container .back-arrow {
+    padding: 6px 12px;
+    font-size: 13px;
+    gap: 6px;
+  }
+
+  .problem-container .problem-title {
+    font-size: 18px;
+  }
+
+  .problem-container .problem-tabs {
+    padding: 0 16px;
+  }
+
+  .problem-container .tab {
+    padding: 10px 12px;
+    font-size: 13px;
+  }
+
+  .problem-container .problem-content {
+    padding: 16px;
+  }
+
+  .problem-container .problem-description {
+    font-size: 13px;
+  }
+
+  .problem-container .example-section {
+    padding: 12px;
+  }
+}

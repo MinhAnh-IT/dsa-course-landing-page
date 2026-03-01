@@ -1,0 +1,389 @@
+/**
+ * Problem Description Styles - LeetCode Clone
+ * Mimics the exact LeetCode UI styling
+ */
+
+/* Container */
+.problem-container {
+  min-height: 100vh;
+  background-color: #1a1a1a;
+  color: #e0e0e0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  padding: 0;
+  margin: 0;
+}
+
+/* Header Section */
+.problem-container .problem-header {
+  background-color: #262626;
+  border-bottom: 1px solid #3a3a3a;
+  padding: 16px 24px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.problem-container .back-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #e0e0e0;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 8px 16px;
+  border-radius: 8px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(10px);
+}
+
+.problem-container .back-arrow:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateX(-4px);
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.problem-container .back-arrow:active {
+  transform: translateX(-2px) scale(0.98);
+}
+
+.problem-container .problem-title-section {
+  flex: 1;
+}
+
+.problem-container .problem-title {
+  font-size: 20px;
+  font-weight: 500;
+  color: #ffffff;
+  margin: 0 0 8px 0;
+}
+
+.problem-container .problem-meta {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+/* Difficulty Badges */
+.problem-container .difficulty-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.problem-container .difficulty-easy {
+  background-color: rgba(67, 160, 71, 0.15);
+  color: #43a047;
+}
+
+.problem-container .difficulty-medium {
+  background-color: rgba(255, 193, 7, 0.15);
+  color: #ffa726;
+}
+
+.problem-container .difficulty-hard {
+  background-color: rgba(239, 83, 80, 0.15);
+  color: #ef5350;
+}
+
+.problem-container .premium-badge {
+  background-color: rgba(255, 215, 0, 0.15);
+  color: #ffd700;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* Tabs */
+.problem-container .problem-tabs {
+  background-color: #262626;
+  border-bottom: 1px solid #3a3a3a;
+  display: flex;
+  padding: 0 24px;
+}
+
+.problem-container .tab {
+  background: none;
+  border: none;
+  color: #999999;
+  padding: 12px 16px;
+  font-size: 14px;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.problem-container .tab:hover:not(.disabled) {
+  color: #e0e0e0;
+}
+
+.problem-container .tab.active {
+  color: #ffffff;
+  border-bottom-color: #ffffff;
+}
+
+.problem-container .tab.disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+/* Problem Content */
+.problem-container .problem-content {
+  padding: 24px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.problem-container .problem-description {
+  line-height: 1.6;
+  font-size: 14px;
+}
+
+/* Problem Statement */
+.problem-container .problem-statement {
+  margin-bottom: 24px;
+  color: #e0e0e0;
+}
+
+.problem-container .problem-statement p {
+  margin: 12px 0;
+}
+
+.problem-container .problem-statement strong {
+  color: #ffffff;
+  font-weight: 500;
+}
+
+.problem-container .problem-statement code {
+  background-color: #2d2d2d;
+  color: #e06c75;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-size: 13px;
+}
+
+.problem-container .problem-statement pre {
+  background-color: #2d2d2d;
+  padding: 12px;
+  border-radius: 6px;
+  overflow-x: auto;
+  margin: 12px 0;
+}
+
+.problem-container .problem-statement pre code {
+  background: none;
+  padding: 0;
+  color: #abb2bf;
+}
+
+.problem-container .problem-statement ul {
+  margin: 12px 0;
+  padding-left: 20px;
+  list-style: none;
+}
+
+.problem-container .problem-statement ol {
+  margin: 12px 0;
+  padding-left: 20px;
+}
+
+.problem-container .problem-statement li {
+  margin: 6px 0;
+  padding-left: 0;
+  position: relative;
+}
+
+.problem-container .problem-statement ul li::before {
+  content: '•';
+  position: absolute;
+  left: -16px;
+  color: #e0e0e0;
+}
+
+/* Examples */
+.problem-container .example-section {
+  margin: 20px 0;
+  padding: 16px;
+  background-color: #262626;
+  border-radius: 8px;
+  border: 1px solid #3a3a3a;
+}
+
+.problem-container .example-title {
+  font-weight: 500;
+  color: #ffffff;
+  margin: 0 0 12px 0;
+  font-size: 14px;
+}
+
+.problem-container .example-content {
+  font-size: 14px;
+}
+
+.problem-container .example-block {
+  margin: 8px 0;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+}
+
+.problem-container .example-block strong {
+  color: #61afef;
+  font-weight: 500;
+}
+
+.problem-container .example-image {
+  margin: 12px 0;
+  text-align: center;
+}
+
+.problem-container .example-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+
+/* Constraints */
+.problem-container .constraints-section,
+.problem-container .followup-section,
+.problem-container .hints-section {
+  margin: 24px 0;
+}
+
+.problem-container .section-title {
+  font-weight: 500;
+  color: #ffffff;
+  margin: 0 0 12px 0;
+  font-size: 14px;
+  padding: 0;
+  text-align: left;
+}
+
+.problem-container .constraints-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  padding-left: 0;
+}
+
+.problem-container .constraints-list li {
+  padding: 6px 0;
+  padding-left: 16px;
+  position: relative;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-size: 13px;
+  color: #e0e0e0;
+}
+
+.problem-container .constraints-list li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: #61afef;
+}
+
+.problem-container .constraints-list code {
+  background-color: #2d2d2d;
+  color: #e06c75;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-size: 12px;
+}
+
+/* Follow-up */
+.problem-container .followup-text {
+  color: #e0e0e0;
+  font-style: italic;
+  margin: 0;
+}
+
+/* Hints */
+.problem-container .hint-details {
+  margin: 12px 0;
+  padding: 12px;
+  background-color: #262626;
+  border-radius: 6px;
+  border: 1px solid #3a3a3a;
+  cursor: pointer;
+}
+
+.problem-container .hint-details summary {
+  font-weight: 500;
+  color: #61afef;
+  cursor: pointer;
+  user-select: none;
+}
+
+.problem-container .hint-details[open] summary {
+  margin-bottom: 12px;
+}
+
+.problem-container .hint-details p {
+  margin: 0;
+  color: #e0e0e0;
+  font-size: 14px;
+}
+
+/* Problem Not Found */
+.problem-container .problem-not-found {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.problem-container .problem-not-found h2 {
+  color: #ffffff;
+  margin-bottom: 12px;
+}
+
+.problem-container .problem-not-found p {
+  color: #999999;
+  margin-bottom: 24px;
+}
+
+.problem-container .back-button {
+  background-color: #2d2d2d;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.problem-container .back-button:hover {
+  background-color: #3a3a3a;
+}
+
+/* Scrollbar Styling */
+.problem-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.problem-container::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+.problem-container::-webkit-scrollbar-thumb {
+  background: #3a3a3a;
+  border-radius: 4px;
+}
+
+.problem-container::-webkit-scrollbar-thumb:hover {
+  background: #4a4a4a;
+}
