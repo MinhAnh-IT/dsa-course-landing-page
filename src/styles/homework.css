@@ -1,0 +1,444 @@
+/* ==================== HOMEWORK PAGE STYLES ==================== */
+/* Desktop-first styling for homework/practice problems page */
+
+.homework-container {
+  min-height: 100vh;
+  background: #000000;
+  padding: 60px 20px 80px;
+  color: #ffffff;
+}
+
+/* ==================== HEADER SECTION ==================== */
+
+.homework-header {
+  text-align: center;
+  margin-bottom: 50px;
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.homework-title {
+  font-size: 3rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #94c973 0%, #60a5fa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 15px;
+  letter-spacing: -0.5px;
+}
+
+.homework-subtitle {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 400;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* ==================== TAB NAVIGATION ==================== */
+
+.tabs-container {
+  max-width: 1200px;
+  margin: 0 auto 40px;
+  overflow-x: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(59, 130, 246, 0.5) rgba(255, 255, 255, 0.1);
+}
+
+.tabs-container::-webkit-scrollbar {
+  height: 6px;
+}
+
+.tabs-container::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+}
+
+.tabs-container::-webkit-scrollbar-thumb {
+  background: rgba(59, 130, 246, 0.5);
+  border-radius: 3px;
+}
+
+.tabs-container::-webkit-scrollbar-thumb:hover {
+  background: rgba(59, 130, 246, 0.7);
+}
+
+.tabs-wrapper {
+  display: flex;
+  gap: 10px;
+  padding: 5px;
+  min-width: max-content;
+}
+
+.tab-button {
+  padding: 12px 24px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid rgba(59, 130, 246, 0.3);
+  border-radius: 12px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+}
+
+.tab-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(59, 130, 246, 0.1) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.tab-button:hover {
+  border-color: rgba(59, 130, 246, 0.6);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.2);
+}
+
+.tab-button:hover::before {
+  opacity: 1;
+}
+
+.tab-button.active {
+  background: linear-gradient(135deg, #10b981 0%, #3b82f6 100%);
+  border-color: transparent;
+  color: #ffffff;
+  box-shadow: 0 4px 20px rgba(59, 130, 246, 0.3);
+}
+
+.tab-button.active::before {
+  opacity: 0;
+}
+
+/* ==================== FILTER BAR ==================== */
+
+.filter-bar {
+  max-width: 1200px;
+  margin: 0 auto 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  animation: fadeInUp 0.6s ease-out 0.2s backwards;
+}
+
+.filter-button {
+  padding: 10px 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  white-space: nowrap;
+}
+
+.filter-button:hover:not(:disabled) {
+  border-color: rgba(255, 255, 255, 0.3);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.filter-button.active {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.4);
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.filter-button.filter-easy {
+  border-color: rgba(74, 222, 128, 0.3);
+}
+
+.filter-button.filter-easy:hover,
+.filter-button.filter-easy.active {
+  background: rgba(74, 222, 128, 0.15);
+  border-color: rgba(74, 222, 128, 0.5);
+  color: #4ade80;
+  box-shadow: 0 4px 12px rgba(74, 222, 128, 0.2);
+}
+
+.filter-button.filter-medium {
+  border-color: rgba(251, 191, 36, 0.3);
+}
+
+.filter-button.filter-medium:hover,
+.filter-button.filter-medium.active {
+  background: rgba(251, 191, 36, 0.15);
+  border-color: rgba(251, 191, 36, 0.5);
+  color: #fbbf24;
+  box-shadow: 0 4px 12px rgba(251, 191, 36, 0.2);
+}
+
+.filter-button.filter-hard {
+  border-color: rgba(248, 113, 113, 0.3);
+}
+
+.filter-button.filter-hard:hover,
+.filter-button.filter-hard.active {
+  background: rgba(248, 113, 113, 0.15);
+  border-color: rgba(248, 113, 113, 0.5);
+  color: #f87171;
+  box-shadow: 0 4px 12px rgba(248, 113, 113, 0.2);
+}
+
+.filter-button.filter-premium {
+  border-color: rgba(167, 139, 250, 0.3);
+}
+
+.filter-button.filter-premium:hover,
+.filter-button.filter-premium.active {
+  background: rgba(167, 139, 250, 0.15);
+  border-color: rgba(167, 139, 250, 0.5);
+  color: #a78bfa;
+  box-shadow: 0 4px 12px rgba(167, 139, 250, 0.2);
+}
+
+/* ==================== PROBLEMS SECTION ==================== */
+
+.problems-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  animation: fadeInUp 0.6s ease-out 0.3s backwards;
+}
+
+.problems-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 20px;
+}
+
+.problem-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 20px 24px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+}
+
+.problem-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(59, 130, 246, 0.1) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.problem-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+}
+
+.problem-card:hover::before {
+  opacity: 1;
+}
+
+.problem-card.premium {
+  border-color: rgba(167, 139, 250, 0.2);
+}
+
+.problem-card.premium:hover {
+  border-color: rgba(167, 139, 250, 0.4);
+  box-shadow: 0 8px 30px rgba(167, 139, 250, 0.15);
+}
+
+/* Problem Content */
+.problem-content {
+  flex: 1;
+  position: relative;
+  z-index: 1;
+}
+
+.problem-name {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
+.problem-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* Difficulty Badges */
+.level-badge {
+  padding: 4px 12px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  display: inline-block;
+}
+
+.level-badge.level-easy {
+  background: rgba(74, 222, 128, 0.15);
+  color: #4ade80;
+  border: 1px solid rgba(74, 222, 128, 0.3);
+}
+
+.level-badge.level-medium {
+  background: rgba(251, 191, 36, 0.15);
+  color: #fbbf24;
+  border: 1px solid rgba(251, 191, 36, 0.3);
+}
+
+.level-badge.level-hard {
+  background: rgba(248, 113, 113, 0.15);
+  color: #f87171;
+  border: 1px solid rgba(248, 113, 113, 0.3);
+}
+
+/* Premium Star Icon - Top Right Corner */
+.premium-star {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  color: #fbbf24;
+  z-index: 2;
+  transition: all 0.3s ease;
+  opacity: 0.9;
+}
+
+.problem-card:hover .premium-star {
+  opacity: 1;
+  transform: scale(1.1) rotate(10deg);
+}
+
+.problem-card.premium .premium-star {
+  filter: drop-shadow(0 2px 8px rgba(251, 191, 36, 0.4));
+}
+
+/* Premium Badge - Deprecated, keeping for backward compatibility */
+.premium-badge {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  background: rgba(167, 139, 250, 0.15);
+  color: #a78bfa;
+  border: 1px solid rgba(167, 139, 250, 0.3);
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+/* Arrow Icon */
+.problem-arrow {
+  flex-shrink: 0;
+  color: rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.problem-card:hover .problem-arrow {
+  color: rgba(255, 255, 255, 0.8);
+  transform: translateX(4px);
+}
+
+/* ==================== BACK TO HOME ==================== */
+
+.back-to-home {
+  max-width: 1200px;
+  margin: 60px auto 0;
+  text-align: center;
+  animation: fadeInUp 0.6s ease-out 0.4s backwards;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.back-link:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.4);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.back-link svg {
+  transition: transform 0.3s ease;
+}
+
+.back-link:hover svg {
+  transform: translateX(-4px);
+}
+
+/* ==================== ANIMATIONS ==================== */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==================== RESPONSIVE ADJUSTMENTS ==================== */
+/* These rules apply before mobile-specific stylesheet */
+
+@media (max-width: 1024px) {
+  .problems-grid {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .homework-title {
+    font-size: 2.5rem;
+  }
+
+  .homework-subtitle {
+    font-size: 1.1rem;
+  }
+
+  .filter-bar {
+    gap: 8px;
+  }
+
+  .problems-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -16,6 +16,7 @@
 @import './faq.css';
 @import './registration.css';
 @import './footer.css';
+@import './homework.css';
 
 /* 5. Mobile and responsive styles - Must be loaded last to override desktop styles */
 @import './mobile/index.css';

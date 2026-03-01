@@ -1,60 +1,39 @@
 import React, { Suspense, lazy } from 'react'
+import { Routes, Route } from 'react-router-dom'
 
-// Import Video ngay vì nó là phần hero section
-import Video from './components/Video'
-
-// Lazy load các components không cần thiết ngay lập tức
-const Roadmap = lazy(() => import('./components/Roadmap'))
-const Registration = lazy(() => import('./components/Registration'))
-const Feedback = lazy(() => import('./components/Feedback'))
-const FAQ = lazy(() => import('./components/FAQ'))
-const Footer = lazy(() => import('./components/Footer'))
+// Lazy load pages for better performance
+const HomePage = lazy(() => import('./components/HomePage'))
+const Homework = lazy(() => import('./components/Homework'))
 
 // Loading fallback component
 const LoadingFallback = () => (
   <div style={{ 
-    minHeight: '200px', 
+    minHeight: '100vh', 
     display: 'flex', 
     alignItems: 'center', 
     justifyContent: 'center',
-    opacity: 0.6 
+    opacity: 0.6,
+    background: '#000000',
+    color: '#ffffff'
   }}>
     <div>Đang tải...</div>
   </div>
 )
 
+/**
+ * App Component - Main router configuration
+ * Routes:
+ * - / : Main landing page
+ * - /homework : Practice problems page
+ */
 function App() {
   return (
-    <div className="app">
-      <Video />
-      <div className="section-divider wave-inverse"></div>
-      
-      <Suspense fallback={<LoadingFallback />}>
-        <Roadmap />
-      </Suspense>
-      
-      <div className="section-divider gradient"></div>
-      
-      <Suspense fallback={<LoadingFallback />}>
-        <Registration />
-      </Suspense>
-      
-      <div className="section-divider wave"></div>
-      
-      <Suspense fallback={<LoadingFallback />}>
-        <Feedback />
-      </Suspense>
-      
-      <div className="section-divider gradient"></div>
-      
-      <Suspense fallback={<LoadingFallback />}>
-        <FAQ />
-      </Suspense>
-      
-      <Suspense fallback={<LoadingFallback />}>
-        <Footer />
-      </Suspense>
-    </div>
+    <Suspense fallback={<LoadingFallback />}>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/homework" element={<Homework />} />
+      </Routes>
+    </Suspense>
   )
 }
 

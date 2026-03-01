@@ -1,0 +1,360 @@
+/* ==================== MOBILE HOMEWORK STYLES ==================== */
+/* Mobile-optimized styling for homework page (max-width: 768px) */
+
+@media (max-width: 768px) {
+  
+  /* ==================== CONTAINER ==================== */
+  
+  .homework-container {
+    padding: 40px 16px 60px;
+  }
+
+  /* ==================== HEADER ==================== */
+  
+  .homework-header {
+    margin-bottom: 35px;
+  }
+
+  .homework-title {
+    font-size: 2.2rem;
+    line-height: 1.2;
+    margin-bottom: 12px;
+  }
+
+  .homework-subtitle {
+    font-size: 1rem;
+    padding: 0 10px;
+    line-height: 1.5;
+  }
+
+  /* ==================== TABS ==================== */
+  
+  .tabs-container {
+    margin-bottom: 30px;
+    /* Improve scrolling on mobile */
+    -webkit-overflow-scrolling: touch;
+    padding: 0 16px;
+    margin-left: -16px;
+    margin-right: -16px;
+  }
+
+  .tabs-wrapper {
+    gap: 8px;
+    padding: 8px 16px;
+  }
+
+  .tab-button {
+    padding: 10px 18px;
+    font-size: 0.9rem;
+    border-radius: 10px;
+    /* Better touch targets */
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+
+  .tab-button:active {
+    transform: scale(0.97);
+  }
+
+  /* ==================== FILTER BAR ==================== */
+  
+  .filter-bar {
+    margin-bottom: 30px;
+    gap: 8px;
+    padding: 8px 16px;
+    flex-wrap: nowrap !important;
+    overflow-x: auto;
+    justify-content: flex-start !important;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(59, 130, 246, 0.5) rgba(255, 255, 255, 0.1);
+    margin-left: -16px;
+    margin-right: -16px;
+    width: 100vw;
+    max-width: 100%;
+  }
+
+  .filter-bar::-webkit-scrollbar {
+    height: 4px;
+  }
+
+  .filter-bar::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 2px;
+  }
+
+  .filter-bar::-webkit-scrollbar-thumb {
+    background: rgba(59, 130, 246, 0.4);
+    border-radius: 2px;
+  }
+
+  .filter-button {
+    padding: 8px 14px;
+    font-size: 0.85rem;
+    border-radius: 8px;
+    /* Better touch targets */
+    min-height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0 !important;
+    white-space: nowrap;
+  }
+
+  .filter-button:active:not(:disabled) {
+    transform: scale(0.95);
+  }
+
+  /* ==================== PROBLEMS GRID ==================== */
+  
+  .problems-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .problem-card {
+    padding: 16px;
+    gap: 12px;
+    border-radius: 12px;
+    /* Better touch feedback */
+    -webkit-tap-highlight-color: rgba(102, 126, 234, 0.1);
+  }
+
+  .problem-card:active {
+    transform: scale(0.98);
+  }
+
+  /* Disable hover effects on mobile */
+  .problem-card:hover {
+    transform: none;
+  }
+
+  .problem-card:active {
+    transform: scale(0.98);
+    border-color: rgba(102, 126, 234, 0.5);
+  }
+
+  /* Problem Content */
+  .problem-name {
+    font-size: 0.95rem;
+    margin-bottom: 6px;
+    line-height: 1.3;
+  }
+
+  .problem-meta {
+    gap: 6px;
+  }
+
+  /* Badges */
+  .level-badge {
+    padding: 3px 10px;
+    font-size: 0.8rem;
+    border-radius: 5px;
+  }
+
+  .premium-badge {
+    padding: 3px 8px;
+    font-size: 0.8rem;
+    border-radius: 5px;
+    gap: 3px;
+  }
+
+  .premium-badge svg {
+    width: 12px;
+    height: 12px;
+  }
+
+  /* Arrow Icon */
+  .problem-arrow {
+    flex-shrink: 0;
+  }
+
+  .problem-arrow svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  /* Disable arrow animation on mobile */
+  .problem-card:hover .problem-arrow {
+    transform: none;
+  }
+
+  /* ==================== BACK TO HOME ==================== */
+  
+  .back-to-home {
+    margin-top: 40px;
+  }
+
+  .back-link {
+    padding: 12px 20px;
+    font-size: 0.95rem;
+    border-radius: 10px;
+    /* Better touch target */
+    min-height: 44px;
+  }
+
+  .back-link:active {
+    transform: scale(0.97);
+  }
+
+  /* Disable hover effects on mobile */
+  .back-link:hover {
+    transform: none;
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  .back-link:active {
+    transform: scale(0.97);
+    background: rgba(102, 126, 234, 0.1);
+    border-color: rgba(102, 126, 234, 0.6);
+  }
+
+  .back-link:hover svg {
+    transform: none;
+  }
+}
+
+/* ==================== SMALL MOBILE DEVICES ==================== */
+/* Extra optimizations for smaller screens */
+
+@media (max-width: 480px) {
+  
+  .homework-container {
+    padding: 30px 12px 50px;
+  }
+
+  .homework-title {
+    font-size: 1.8rem;
+  }
+
+  .homework-subtitle {
+    font-size: 0.9rem;
+  }
+
+  .tabs-wrapper {
+    gap: 6px;
+    padding: 6px 12px;
+  }
+
+  .tab-button {
+    padding: 8px 14px;
+    font-size: 0.85rem;
+  }
+
+  .filter-button {
+    padding: 7px 14px;
+    font-size: 0.8rem;
+    min-height: 38px;
+  }
+
+  .problem-card {
+    padding: 14px;
+    gap: 10px;
+  }
+
+  .problem-name {
+    font-size: 0.95rem;
+  }
+
+  .level-badge {
+    font-size: 0.75rem;
+    padding: 2px 8px;
+  }
+
+  .premium-badge {
+    font-size: 0.75rem;
+    padding: 2px 6px;
+  }
+
+  .premium-badge svg {
+    width: 11px;
+    height: 11px;
+  }
+
+  .problem-arrow svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .back-link {
+    padding: 10px 18px;
+    font-size: 0.9rem;
+  }
+}
+
+/* ==================== LANDSCAPE MODE ==================== */
+/* Adjustments for landscape orientation on mobile */
+
+@media (max-width: 768px) and (orientation: landscape) {
+  
+  .homework-container {
+    padding: 30px 20px 40px;
+  }
+
+  .homework-header {
+    margin-bottom: 25px;
+  }
+
+  .homework-title {
+    font-size: 2rem;
+  }
+
+  .homework-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .filter-bar {
+    justify-content: flex-start;
+  }
+
+  .problems-grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 14px;
+  }
+
+  .back-to-home {
+    margin-top: 30px;
+  }
+}
+
+/* ==================== ACCESSIBILITY ==================== */
+/* Enhanced touch targets and readability for mobile */
+
+@media (max-width: 768px) {
+  
+  /* Ensure all interactive elements meet minimum touch target size (44x44px) */
+  .tab-button,
+  .filter-button,
+  .problem-card,
+  .back-link {
+    position: relative;
+  }
+
+  /* Improve focus visibility for keyboard navigation */
+  .tab-button:focus-visible,
+  .filter-button:focus-visible,
+  .problem-card:focus-visible,
+  .back-link:focus-visible {
+    outline: 2px solid #667eea;
+    outline-offset: 2px;
+  }
+
+  /* Reduce animations for users who prefer reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .homework-header,
+    .filter-bar,
+    .problems-container,
+    .back-to-home {
+      animation: none;
+    }
+
+    .tab-button,
+    .filter-button,
+    .problem-card,
+    .back-link,
+    .problem-arrow {
+      transition: none;
+    }
+  }
+}
