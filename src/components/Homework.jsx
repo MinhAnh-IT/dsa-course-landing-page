@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useEffect } from 'react';
+import React, { useState, useMemo, useEffect, useRef } from 'react';
 import { useNavigate, useLocation, useSearchParams } from 'react-router-dom';
 import { homeworkData, getCategories, getCategoryStats, getLevels, getCategoryLevelBreakdown } from '../data/homeworkData';
 import { problemDescriptions } from '../data/problemDescriptions';
@@ -12,6 +12,7 @@ const Homework = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const [searchParams, setSearchParams] = useSearchParams();
+  const tabsContainerRef = useRef(null);
   
   // Get all unique categories and levels from homework data (dynamic)
   const categories = useMemo(() => getCategories(), []);
@@ -44,6 +45,27 @@ const Homework = () => {
     params.set('filter', activeFilter);
     setSearchParams(params, { replace: true });
   }, [activeCategory, activeFilter, setSearchParams]);
+
+  // Enable horizontal scroll with mouse wheel for category tabs
+  useEffect(() => {
+    const tabsContainer = tabsContainerRef.current;
+    if (!tabsContainer) return;
+
+    const handleWheel = (e) => {
+      // Check if the element has horizontal scroll capability
+      if (tabsContainer.scrollWidth > tabsContainer.clientWidth) {
+        e.preventDefault();
+        // Convert vertical scroll to horizontal scroll
+        tabsContainer.scrollLeft += e.deltaY;
+      }
+    };
+
+    tabsContainer.addEventListener('wheel', handleWheel, { passive: false });
+    
+    return () => {
+      tabsContainer.removeEventListener('wheel', handleWheel);
+    };
+  }, []);
 
   // Filter problems by selected category and difficulty
   const filteredProblems = useMemo(() => {
@@ -131,7 +153,7 @@ const Homework = () => {
       </div>
 
       {/* Tab Navigation */}
-      <div className="tabs-container">
+      <div className="tabs-container" ref={tabsContainerRef}>
         <div className="tabs-wrapper">
           {categories.map((category) => (
             <button
