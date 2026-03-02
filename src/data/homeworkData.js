@@ -43,7 +43,6 @@ export const homeworkData = [
     {"id":3,"name":"Longest Substring Without Repeating Characters","link":"https://leetcode.com/problems/longest-substring-without-repeating-characters/","level":"Medium","category":"Hashing","isPremium":false}, 
 
 
-    {"id":125,"name":"Valid Palindrome","link":"https://leetcode.com/problems/valid-palindrome/","level":"Easy","category":"Two Pointer","isPremium":false},
     {"id":344,"name":"Reverse String","link":"https://leetcode.com/problems/reverse-string/","level":"Easy","category":"Two Pointer","isPremium":false},
     {"id":125,"name":"Valid Palindrome","link":"https://leetcode.com/problems/valid-palindrome/","level":"Easy","category":"Two Pointer","isPremium":false},
     {"id":167,"name":"Two Sum II - Input Array Is Sorted","link":"https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/","level":"Medium","category":"Two Pointer","isPremium":false},
