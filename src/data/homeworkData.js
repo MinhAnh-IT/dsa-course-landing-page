@@ -20,7 +20,7 @@ export const homeworkData = [
     {"id":141,"name":"Linked List Cycle","link":"https://leetcode.com/problems/linked-list-cycle/","level":"Easy","category":"Linked List","isPremium":false},
     {"id":19,"name":"Remove Nth Node From End of List","link":"https://leetcode.com/problems/remove-nth-node-from-end-of-list/","level":"Medium","category":"Linked List","isPremium":false},
     {"id":2,"name":"Add Two Numbers","link":"https://leetcode.com/problems/add-two-numbers/","level":"Medium","category":"Linked List","isPremium":false},
-    {"id":143,"name":"Reorder List","link":"https://leetcode.com/problems/reorder-list/","level":"Medium","category":"Linked List","isPremium":false},
+    {"id":138,"name":"Copy List with Random Pointer","link":"https://leetcode.com/problems/copy-list-with-random-pointer/","level":"Medium","category":"Linked List","isPremium":false},
 
     {"id":225,"name":"Implement Stack using Queues","link":"https://leetcode.com/problems/implement-stack-using-queues/","level":"Easy","category":"Stack & Queue","isPremium":false},
     {"id":232,"name":"Implement Queue using Stacks","link":"https://leetcode.com/problems/implement-queue-using-stacks/","level":"Easy","category":"Stack & Queue","isPremium":false},
